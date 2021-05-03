@@ -8,7 +8,11 @@ import java.util.Optional;
 
 public class MemberService {
 
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    public MemberService(final MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public long join(final Member member) {
         validateDuplicateMember(member);
